@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Simiple-calculator</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="formula">Input your formula</string>
+    <string name="result">Result in here</string>
+</resources>
