@@ -5,33 +5,59 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-
 public class MainActivity extends Activity {
 
-    EditText val1;
+    EditText formula;
     EditText result;
-    ArrayList<TextView> num_pad;
+    TextView []keypad_btn;
+    TextView submit_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        val1 = (EditText)findViewById(R.id.formula);
+        formula = (EditText)findViewById(R.id.formula);
         result = (EditText)findViewById(R.id.result);
 
-        num_pad = new ArrayList<>(10);
+        keypad_btn = new TextView[14];
 
-        int num = 0;
-        for (TextView text : num_pad)
-        {
-            text.setText(num);
-        }
+        keypad_btn[0] = (TextView)findViewById(R.id.num0);
+        keypad_btn[1] = (TextView)findViewById(R.id.num1);
+        keypad_btn[2] = (TextView)findViewById(R.id.num2);
+        keypad_btn[3] = (TextView)findViewById(R.id.num3);
+        keypad_btn[4] = (TextView)findViewById(R.id.num4);
+        keypad_btn[5] = (TextView)findViewById(R.id.num5);
+        keypad_btn[6] = (TextView)findViewById(R.id.num6);
+        keypad_btn[7] = (TextView)findViewById(R.id.num7);
+        keypad_btn[8] = (TextView)findViewById(R.id.num8);
+        keypad_btn[9] = (TextView)findViewById(R.id.num9);
+        keypad_btn[10] = (TextView)findViewById(R.id.plus);
+        keypad_btn[11] = (TextView)findViewById(R.id.minus);
+        keypad_btn[12] = (TextView)findViewById(R.id.multi);
+        keypad_btn[13] = (TextView)findViewById(R.id.divide);
+
+        submit_btn = (TextView)findViewById(R.id.submit);
+
+
+    }
+
+    public void clickBtn(View view)
+    {
+        String text = formula.toString();
+        text += view.toString();
+        formula.setText(text);
+    }
+
+    public void clickSubmit(View view)
+    {
+        Calculator calc = new Calculator(formula.toString());
+
+        calc.operation();
     }
 
     @Override

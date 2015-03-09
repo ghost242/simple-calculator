@@ -10,18 +10,16 @@ import java.util.Stack;
  *  operation : this method makes a result from formula in the stack
  */
 public class Calculator {
-    public void inputFormula(String formula)
-    {
-        this.formula = formula;
-    }
+    Calculator(String input_formula) { formula = input_formula; }
 
-    public void parseFormula()
+    private void parseFormula()
     {
 
     }
     public int operation()
     {
         int result = 0;
+        parseFormula();
 
         return result;
     }

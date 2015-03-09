@@ -14,10 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Formula"/>
+            android:text="<Formula>>"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:id="@+id/formula"
             android:hint="@string/formula"/>
         <TextView
@@ -25,10 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:text="Result"/>
+            android:text="<<Result>>"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:inputType="none"
             android:id="@+id/result"
             android:hint="@string/result"/>
@@ -40,6 +42,7 @@
         android:rowCount="4"
         android:columnCount="4">
         <TextView
+            android:id="@+id/num1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -48,6 +51,7 @@
             android:layout_column="0"
             android:text="1"/>
         <TextView
+            android:id="@+id/num2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -56,6 +60,7 @@
             android:layout_column="1"
             android:text="2"/>
         <TextView
+            android:id="@+id/num3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -64,6 +69,7 @@
             android:layout_column="2"
             android:text="3"/>
         <TextView
+            android:id="@+id/num4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -72,6 +78,7 @@
             android:layout_column="0"
             android:text="4"/>
         <TextView
+            android:id="@+id/num5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -80,6 +87,7 @@
             android:layout_column="1"
             android:text="5"/>
         <TextView
+            android:id="@+id/num6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -88,6 +96,7 @@
             android:layout_column="2"
             android:text="6"/>
         <TextView
+            android:id="@+id/num7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -96,6 +105,7 @@
             android:layout_column="0"
             android:text="7"/>
         <TextView
+            android:id="@+id/num8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -104,6 +114,7 @@
             android:layout_column="1"
             android:text="8"/>
         <TextView
+            android:id="@+id/num9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -112,6 +123,7 @@
             android:layout_column="2"
             android:text="9"/>
         <TextView
+            android:id="@+id/num0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -120,6 +132,7 @@
             android:layout_column="0"
             android:text="0"/>
         <TextView
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -129,6 +142,7 @@
             android:layout_columnSpan="2"
             android:text="submit"/>
         <TextView
+            android:id="@+id/plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -137,6 +151,7 @@
             android:layout_column="3"
             android:text="+"/>
         <TextView
+            android:id="@+id/minus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -145,6 +160,7 @@
             android:layout_column="3"
             android:text="-"/>
         <TextView
+            android:id="@+id/multi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
@@ -153,6 +169,7 @@
             android:layout_column="3"
             android:text="*"/>
         <TextView
+            android:id="@+id/divide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dip"
