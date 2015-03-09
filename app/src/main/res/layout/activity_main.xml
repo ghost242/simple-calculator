@@ -14,11 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="<Formula>>"/>
+            android:text="*Formula"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
+            android:inputType="none"
             android:id="@+id/formula"
             android:hint="@string/formula"/>
         <TextView
@@ -26,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:text="<<Result>>"/>
+            android:text="*Result"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

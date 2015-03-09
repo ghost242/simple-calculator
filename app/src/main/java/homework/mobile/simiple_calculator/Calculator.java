@@ -12,16 +12,36 @@ import java.util.Stack;
 public class Calculator {
     Calculator(String input_formula) { formula = input_formula; }
 
-    private void parseFormula()
-    {
-
-    }
     public int operation()
     {
         int result = 0;
         parseFormula();
 
         return result;
+    }
+
+    private void parseFormula()
+    {
+        String op = "";
+
+        for ( int i = 0; i < formula.length(); i++)
+        {
+            if ( isNum(formula.charAt(i)))
+            {
+                op += formula.charAt(i);
+            }
+            else
+            {
+
+            }
+        }
+    }
+    private boolean isNum(char ch)
+    {
+        if ( ch == '+' || ch == '-' || ch == '*' || ch == '/' )
+            return false;
+        else
+            return true;
     }
 
     private String formula;

@@ -41,23 +41,29 @@ public class MainActivity extends Activity {
         keypad_btn[12] = (TextView)findViewById(R.id.multi);
         keypad_btn[13] = (TextView)findViewById(R.id.divide);
 
+        for ( TextView button:keypad_btn)
+        {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView tmp_text = (TextView)v;
+                    String text = formula.getText().toString();
+                    text = text + tmp_text.getText().toString();
+                    formula.setText(text);
+                }
+            });
+        }
+
         submit_btn = (TextView)findViewById(R.id.submit);
 
+        submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calculator calc = new Calculator(formula.toString());
 
-    }
-
-    public void clickBtn(View view)
-    {
-        String text = formula.toString();
-        text += view.toString();
-        formula.setText(text);
-    }
-
-    public void clickSubmit(View view)
-    {
-        Calculator calc = new Calculator(formula.toString());
-
-        calc.operation();
+                calc.operation();
+            }
+        });
     }
 
     @Override
