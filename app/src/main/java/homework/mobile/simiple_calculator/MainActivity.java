@@ -6,23 +6,42 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    EditText formula;
+    EditText value1;
+    EditText value2;
     EditText result;
+    TextView setval1_btn;
+    TextView setval2_btn;
+    TextView result_btn;
     TextView []keypad_btn;
     TextView submit_btn;
+
+    Button reset;
+
+    View cur_view;
+    int operator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        formula = (EditText)findViewById(R.id.formula);
+        cur_view = null;
+
+        value1 = (EditText)findViewById(R.id.value1);
+        value2 = (EditText)findViewById(R.id.value2);
         result = (EditText)findViewById(R.id.result);
+
+        reset = (Button)findViewById(R.id.reset);
+
+        setval1_btn = (TextView)findViewById(R.id.set_val1);
+        setval2_btn = (TextView)findViewById(R.id.set_val2);
+        result_btn = (TextView)findViewById(R.id.set_result);
 
         keypad_btn = new TextView[14];
 
@@ -41,27 +60,90 @@ public class MainActivity extends Activity {
         keypad_btn[12] = (TextView)findViewById(R.id.multi);
         keypad_btn[13] = (TextView)findViewById(R.id.divide);
 
-        for ( TextView button:keypad_btn)
+        setval1_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cur_view = value1;
+            }
+        });
+
+        setval2_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cur_view = value2;
+            }
+        });
+
+        for ( int i = 0; i <  10; i ++)
         {
-            button.setOnClickListener(new View.OnClickListener() {
+            keypad_btn[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if ( cur_view == null )
+                        return ;
+
                     TextView tmp_text = (TextView)v;
-                    String text = formula.getText().toString();
+                    EditText tmp_edit = (EditText)cur_view;
+
+                    String text = tmp_edit.getText().toString();
                     text = text + tmp_text.getText().toString();
-                    formula.setText(text);
+                    tmp_edit.setText(text);
                 }
             });
         }
+
+        for ( int i = 10; i < 14; i++) {
+            keypad_btn[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView text = (TextView) v;
+                    if (text.getText().toString().compareTo(String.valueOf("+")) == 0) {
+                        operator = 0;
+                    } else if (text.getText().toString().compareTo(String.valueOf("-")) == 0) {
+                        operator = 1;
+                    } else if (text.getText().toString().compareTo(String.valueOf("*")) == 0) {
+                        operator = 2;
+                    } else if (text.getText().toString().compareTo(String.valueOf("/")) == 0) {
+                        operator = 3;
+                    }
+                }
+            });
+        }
+
+        reset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                value1.setText("");
+                value2.setText("");
+                result.setText("");
+            }
+        });
 
         submit_btn = (TextView)findViewById(R.id.submit);
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calculator calc = new Calculator(formula.toString());
+                int val1 = Integer.parseInt(value1.getText().toString());
+                int val2 = Integer.parseInt(value2.getText().toString());
+                int res = 0;
 
-                calc.operation();
+                if ( operator == 0){
+                    res = val1+val2;
+                }
+                else if ( operator == 1){
+                    res = val1-val2;
+                }
+                else if ( operator == 2){
+                    res = val1*val2;
+                }
+                else if( operator == 3){
+                    if ( val2 != 0)
+                        res = val1/val2;
+                    else
+                        res = 0;
+                }
+                result.setText(String.valueOf(res), TextView.BufferType.NORMAL);
             }
         });
     }
